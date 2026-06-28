@@ -1,7 +1,7 @@
 #Importando bibliotecas necessárias
 import string
-from fcfs import rodar_fcfs
-from sjf import rodar_sjf
+from algorithms.fcfs import rodar_fcfs
+from algorithms.sjf import rodar_sjf
 from typing import List
 from typing import Dict, List
 
@@ -13,7 +13,7 @@ dicionario_de_processos: dict[str, any] = {}
 
 #Lendo os processos do arquivo de entrada - Contém o tempo de chegada e a duração de cada processo
 # -=- Ref: https://www.geeksforgeeks.org/python/python-read-text-file-into-list-or-array/
-with open("src/loader/entrada.txt") as file:
+with open("data/entrada.txt") as file:
     processos = [line.strip() for line in file] #stip removes spaces at the start and end of the string.
 
 #Convertendo em dicionário python
