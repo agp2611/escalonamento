@@ -43,8 +43,8 @@ def rodar_fcfs(dicionario_de_processos):
             "duracao": duracao,
             "inicio": inicio,      # quando começou a executar pela 1ª vez
             "fim": fim,            # quando terminou
-            "retorno": fim-chegada,   
-            "resposta": inicio-chegada,  
+            "retorno": fim-chegada,
+            "resposta": inicio-chegada,
             "espera": (fim - chegada) - duracao
         }
 
@@ -54,7 +54,7 @@ def rodar_fcfs(dicionario_de_processos):
         espera_media += dicionario_guia[indice]["espera"]
 
         #Onde o processo atual terminou pra o próximo saber onde começar
-        fim_anterior = fim  
+        fim_anterior = fim
     
     #Calculando médias com a ajuda do do dicionario de entrada, que contém a quantidade de processos, o len retorna quantos indíces (processos) existem no dicionário
     retorno_medio /= len(dicionario_de_processos)
