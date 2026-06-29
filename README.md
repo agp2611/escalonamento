@@ -1,14 +1,4 @@
-<div>
-  <center style="font-size: 40px">
-   Escalonador de CPU
-   </center>
-
-  <center style="font-size: 18px; color: #09ff00; font-family: monospace;">
-    SJF | FCFS | RR
-  </center>
-</div>
-
----
+<h1 align="center"> Simulador de Escalonamento de CPU </h1>
 
 Miniprojeto da disciplina de **Sistemas Operacionais**, cujo o objetivo é entender e implementar um código que **simule** os algoritmos de **escalonamento**:
 
