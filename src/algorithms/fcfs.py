@@ -18,16 +18,21 @@ P4:                                              [====]
 def rodar_fcfs(dicionario_de_processos):
 
     #Inciailizando variáveis de forma limpa
-    retorno: float = 0.0; resposta: float = 0.0; espera: float = 0.0
     chegada: float = 0.0; inicio: float = 0.0; fim: float = 0.0; duracao: float = 0.0
     retorno_medio: float = 0.0; resposta_media: float = 0.0; espera_media: float = 0.0
     dicionario_guia: dict[int, dict] = {}
 
-    #Loop percorrendo todos os processos do dicionário de entrada
-    for indice, (chegada, duracao) in dicionario_de_processos.items():
+    #o sorted pega uma lista e devolve ela ordenada pela key
+    #lambda é uma função de uma linha só, ela recebe cada indíce do dicionário (processos) e devolve 
+    #[i][0] que é o tempo de chegada do processo, e o indíce original do dicionário, que é o id do processo, para desempatar. (tupla)
+    ordem_de_execucao = sorted(dicionario_de_processos.keys(), key=lambda i: (dicionario_de_processos[i][0], i))
 
-        #Se for o primeiro processo então ele executa primeiro
-        if indice == 0: 
+    #Fix: Loop percorrendo os processos NA ORDEM DE CHEGADA, não na ordem do dicionário
+    for posicao, indice in enumerate(ordem_de_execucao):
+        chegada, duracao = dicionario_de_processos[indice]
+
+        #Se for o primeiro processo da ordem então ele executa primeiro
+        if posicao == 0: 
             inicio = chegada
         #Se não é o primeiro, veio depois, ele só começou quando o anterior terminou
         else:

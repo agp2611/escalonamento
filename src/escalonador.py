@@ -1,6 +1,7 @@
 #Importando bibliotecas necessárias
 import string
 from algorithms.fcfs import rodar_fcfs
+from algorithms.rrQ2 import rodar_rrQ2
 from algorithms.sjf import rodar_sjf
 from typing import List
 from typing import Dict, List
@@ -9,7 +10,7 @@ from typing import Dict, List
 tipo_fila: str = ""
 retorno_FCFS: float = 0.0; resposta_FCFS: float = 0.0; espera_FCFS: float = 0.0
 processos: List[str] = []
-dicionario_de_processos: dict[str, any] = {}
+dicionario_de_processos: dict[int, tuple] = {}
 
 #Lendo os processos do arquivo de entrada - Contém o tempo de chegada e a duração de cada processo
 # -=- Ref: https://www.geeksforgeeks.org/python/python-read-text-file-into-list-or-array/
@@ -45,6 +46,9 @@ RR 31,5 2,0 20,5
 #Rodar FCFS
 retorno_FCFS, resposta_FCFS, espera_FCFS = rodar_fcfs(dicionario_de_processos)
 retorno_SJF, resposta_SJF, espera_SJF = rodar_sjf(dicionario_de_processos)
+retorno_RR, resposta_RR, espera_RR = rodar_rrQ2(dicionario_de_processos)
 
-print("FCFS: %.1f %.1f %.1f" % (retorno_FCFS, resposta_FCFS, espera_FCFS))
-print("SJF: %.1f %.1f %.1f" % (retorno_SJF, resposta_SJF, espera_SJF))
+#Att: Coloca vírgulas no lugar de pontos
+print(("FCFS %.1f %.1f %.1f" % (retorno_FCFS, resposta_FCFS, espera_FCFS)).replace(".", ","))
+print(("SJF %.1f %.1f %.1f" % (retorno_SJF, resposta_SJF, espera_SJF)).replace(".", ","))
+print(("RR %.1f %.1f %.1f" % (retorno_RR, resposta_RR, espera_RR)).replace(".", ","))
