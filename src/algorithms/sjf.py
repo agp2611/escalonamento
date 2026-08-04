@@ -38,7 +38,7 @@ def rodar_sjf(dicionario_de_processos):
         processos_disponiveis = [i for i in processos_restantes if dicionario_de_processos[i][0] <= tempo_atual]
         
         #se não existir processo disponivel, então o tempo atual é atualizado para o tempo de chegada do próximo processo que ainda não chegou, e o loop continua.
-        if not processos_disponiveis:
+        if processos_disponiveis:
             tempo_atual = min([dicionario_de_processos[i][0] for i in processos_restantes]) #pega o menor tempo de chegada dos processos restantes
             continue
         
